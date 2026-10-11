@@ -107,6 +107,7 @@ h1,h2,h3,.brand{font-family:var(--serif);font-weight:400;letter-spacing:.01em}
 .b-delisted{background:#F9E4E0;color:#B3261E}
 .b-restricted{background:#FBF0D9;color:#9A6B00}
 .b-unknown{background:#EFEBE0;color:#6B6259}
+.b-unlisted{background:#E7E2D2;color:#6E675A}
 .table-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:14px;background:#fff;box-shadow:var(--shadow)}
 table{width:100%;border-collapse:collapse;min-width:660px;font-size:14px}
 th,td{padding:14px 16px;text-align:left;border-bottom:1px solid #EDE7D8;vertical-align:top}
@@ -215,9 +216,10 @@ footer a:hover{color:var(--coral);text-decoration:none}
   <!-- BOARD -->
   <section id="board">
     <h2 class="sec-title">📋 上架状态看板</h2>
-    <p class="sec-desc">ZEC、XMR、DASH 在 15 家主流交易所的上架情况。监管环境变化快，下单前请以交易所官网为准。</p>
+    <p class="sec-desc">ZEC、XMR、DASH 在 15 家主流交易所的上架情况（2026-10-11 起逐家核对各交易所公开现货接口）。监管环境变化快，下单前请以交易所官网为准。</p>
     <div class="legend">
       <span><span class="badge b-listed">上架</span> 可交易</span>
+      <span><span class="badge b-unlisted">未上架</span> 当前无现货交易对</span>
       <span><span class="badge b-delisted">已下架</span> 不可交易</span>
       <span><span class="badge b-restricted">地区限制</span> 部分地区不可用</span>
       <span><span class="badge b-unknown">待核实</span> 尚未人工核实</span>
@@ -359,32 +361,16 @@ footer a:hover{color:var(--coral);text-decoration:none}
 
 <script>
 /* ---------- listings table (data/listings.json, with inline fallback) ---------- */
-var FALLBACK_LISTINGS = {"updated":"2026-10-11","exchanges":[
-{"name":"Binance","zh":"币安","zec":{"s":"listed","n":"ZEC/USDT、ZEC/USDC 现货及永续；9 月现货量占全网约 43%"},"xmr":{"s":"delisted","n":"2024-02-20 全球下架，5 月停止提现"},"dash":{"s":"listed","n":"2026 年 9 月新增现货交易对"}},
-{"name":"OKX","zh":"欧易","zec":{"s":"unknown","n":""},"xmr":{"s":"unknown","n":""},"dash":{"s":"unknown","n":""}},
-{"name":"Bybit","zh":"","zec":{"s":"unknown","n":""},"xmr":{"s":"unknown","n":""},"dash":{"s":"unknown","n":""}},
-{"name":"Bitget","zh":"","zec":{"s":"unknown","n":""},"xmr":{"s":"unknown","n":""},"dash":{"s":"unknown","n":""}},
-{"name":"MEXC","zh":"抹茶","zec":{"s":"unknown","n":""},"xmr":{"s":"unknown","n":""},"dash":{"s":"unknown","n":""}},
-{"name":"Gate.io","zh":"芝麻开门","zec":{"s":"unknown","n":""},"xmr":{"s":"unknown","n":""},"dash":{"s":"unknown","n":""}},
-{"name":"KuCoin","zh":"库币","zec":{"s":"unknown","n":""},"xmr":{"s":"unknown","n":""},"dash":{"s":"unknown","n":""}},
-{"name":"Kraken","zh":"","zec":{"s":"unknown","n":""},"xmr":{"s":"restricted","n":"2026-04 起在加拿大、印度下架；欧洲区面临下架压力"},"dash":{"s":"unknown","n":""}},
-{"name":"Coinbase","zh":"","zec":{"s":"unknown","n":""},"xmr":{"s":"unknown","n":""},"dash":{"s":"unknown","n":""}},
-{"name":"Crypto.com","zh":"","zec":{"s":"unknown","n":""},"xmr":{"s":"unknown","n":""},"dash":{"s":"unknown","n":""}},
-{"name":"HTX","zh":"火币","zec":{"s":"unknown","n":""},"xmr":{"s":"unknown","n":""},"dash":{"s":"unknown","n":""}},
-{"name":"Bitstamp","zh":"","zec":{"s":"unknown","n":""},"xmr":{"s":"unknown","n":""},"dash":{"s":"unknown","n":""}},
-{"name":"Gemini","zh":"双子星","zec":{"s":"unknown","n":""},"xmr":{"s":"unknown","n":""},"dash":{"s":"unknown","n":""}},
-{"name":"Robinhood","zh":"罗宾汉","zec":{"s":"listed","n":"2026-04-24 全美上架（含纽约）；仅支持透明地址提现"},"xmr":{"s":"unknown","n":""},"dash":{"s":"unknown","n":""}},
-{"name":"Bitfinex","zh":"","zec":{"s":"unknown","n":""},"xmr":{"s":"unknown","n":""},"dash":{"s":"unknown","n":""}}
-]};
+var FALLBACK_LISTINGS = {"updated": "2026-10-11", "exchanges": [{"name": "Binance", "zh": "币安", "zec": {"s": "listed", "n": "ZEC/USDT、ZEC/USDC 现货及永续；9 月现货量占全网约 43%"}, "xmr": {"s": "delisted", "n": "2024-02-20 全球下架，5 月停止提现"}, "dash": {"s": "listed", "n": "2026 年 9 月新增现货交易对"}}, {"name": "OKX", "zh": "欧易", "zec": {"s": "listed", "n": "ZEC/USDT 等现货交易对"}, "xmr": {"s": "unlisted", "n": ""}, "dash": {"s": "listed", "n": "DASH/USDT 等现货交易对"}}, {"name": "Bybit", "zh": "", "zec": {"s": "unlisted", "n": ""}, "xmr": {"s": "unlisted", "n": ""}, "dash": {"s": "unlisted", "n": ""}}, {"name": "Bitget", "zh": "", "zec": {"s": "listed", "n": "ZEC/USDT 现货"}, "xmr": {"s": "unlisted", "n": ""}, "dash": {"s": "unlisted", "n": ""}}, {"name": "MEXC", "zh": "抹茶", "zec": {"s": "listed", "n": "ZEC/USDT、ZEC/USDC 现货"}, "xmr": {"s": "listed", "n": "XMR/USDT、XMR/USDC 现货"}, "dash": {"s": "listed", "n": "DASH/USDT 等现货"}}, {"name": "Gate.io", "zh": "芝麻开门", "zec": {"s": "listed", "n": "ZEC/USDT 现货"}, "xmr": {"s": "unlisted", "n": ""}, "dash": {"s": "listed", "n": "DASH/USDT 现货"}}, {"name": "KuCoin", "zh": "库币", "zec": {"s": "listed", "n": "ZEC/USDT 等现货"}, "xmr": {"s": "listed", "n": "XMR/USDT 等现货"}, "dash": {"s": "listed", "n": "DASH/USDT 等现货"}}, {"name": "Kraken", "zh": "", "zec": {"s": "listed", "n": "ZEC/USD 等现货"}, "xmr": {"s": "restricted", "n": "2026-04 起在加拿大、印度下架；欧洲区面临下架压力"}, "dash": {"s": "listed", "n": "DASH/USD 等现货"}}, {"name": "Coinbase", "zh": "", "zec": {"s": "listed", "n": "ZEC/USD 现货"}, "xmr": {"s": "unlisted", "n": ""}, "dash": {"s": "listed", "n": "DASH/USD 现货"}}, {"name": "Crypto.com", "zh": "", "zec": {"s": "unlisted", "n": ""}, "xmr": {"s": "unlisted", "n": ""}, "dash": {"s": "unlisted", "n": ""}}, {"name": "HTX", "zh": "火币", "zec": {"s": "listed", "n": "ZEC/USDT 等现货"}, "xmr": {"s": "listed", "n": "XMR/USDT 等现货"}, "dash": {"s": "listed", "n": "DASH/USDT 等现货"}}, {"name": "Bitstamp", "zh": "", "zec": {"s": "listed", "n": "ZEC/USD 现货"}, "xmr": {"s": "unlisted", "n": ""}, "dash": {"s": "unlisted", "n": ""}}, {"name": "Gemini", "zh": "双子星", "zec": {"s": "listed", "n": "ZEC/USD 等现货"}, "xmr": {"s": "unlisted", "n": ""}, "dash": {"s": "unlisted", "n": ""}}, {"name": "Robinhood", "zh": "罗宾汉", "zec": {"s": "listed", "n": "2026-04-24 全美上架（含纽约）；仅支持透明地址提现"}, "xmr": {"s": "unknown", "n": ""}, "dash": {"s": "unknown", "n": ""}}, {"name": "Bitfinex", "zh": "", "zec": {"s": "listed", "n": "ZEC/USD 现货"}, "xmr": {"s": "listed", "n": "XMR/USD、XMR/BTC 现货"}, "dash": {"s": "listed", "n": "DSH/USD 现货"}}]};
 var REF_URL = "https://account.binance.com/register?ref=WBBI3YKV&?registerChannel=user_center";
-var BADGE = {listed:'<span class="badge b-listed">上架</span>',delisted:'<span class="badge b-delisted">已下架</span>',restricted:'<span class="badge b-restricted">地区限制</span>',unknown:'<span class="badge b-unknown">待核实</span>'};
+var BADGE = {listed:'<span class="badge b-listed">上架</span>',delisted:'<span class="badge b-delisted">已下架</span>',restricted:'<span class="badge b-restricted">地区限制</span>',unlisted:'<span class="badge b-unlisted">未上架</span>',unknown:'<span class="badge b-unknown">待核实</span>'};
 function cellHTML(ex, coin){
   var c = ex[coin], h = BADGE[c.s] || BADGE.unknown;
   if(c.n) h += '<span class="cell-note">'+c.n+'</span>';
   if(ex.name==="Binance" && (coin==="zec"||coin==="dash") && c.s==="listed"){
     h += '<div class="cell-btn"><a class="btn btn-sm" href="'+REF_URL+'" target="_blank" rel="noopener">去币安购买</a></div>';
   }
-  if(coin==="xmr" && (c.s==="delisted"||c.s==="restricted"||c.s==="unknown")){
+  if(coin==="xmr" && (c.s==="delisted"||c.s==="restricted"||c.s==="unknown"||c.s==="unlisted")){
     h += '<div class="cell-btn"><a href="#guide" style="font-size:13px">查看 XMR 购买指南 →</a></div>';
   }
   return h;
