@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>隐私币导航 — ZEC / XMR / DASH 上架状态 · 币种对比 · 购买指南</title>
+<meta name="description" content="隐私币导航：实时追踪 ZEC、XMR、DASH 在 15 家主流交易所的上架状态，中文对比三大隐私币技术与合规风险，XMR 分步购买路线图，Zcash NU7 升级倒计时。数据人工维护、每周更新。">
+<meta name="keywords" content="隐私币,ZEC,XMR,DASH,Zcash,门罗币,达世币,交易所上架,隐私币哪里买,NU7升级">
+<meta property="og:type" content="website">
+<meta property="og:title" content="隐私币导航 — ZEC / XMR / DASH 上架状态 · 对比 · 购买指南">
+<meta property="og:description" content="15 家主流交易所隐私币上架状态实时看板 · 三大隐私币中文对比 · XMR 购买路线图 · Zcash NU7 升级倒计时">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="隐私币导航 — ZEC / XMR / DASH 上架状态 · 对比 · 购买指南">
+<meta name="twitter:description" content="15 家主流交易所隐私币上架状态实时看板 · 三大隐私币中文对比 · XMR 购买路线图">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "隐私币导航",
+  "inLanguage": "zh-CN",
+  "description": "ZEC / XMR / DASH 上架状态看板、币种对比、XMR 购买指南与 Zcash NU7 升级倒计时",
+  "url": "https://jxsite.github.io/privacy-nav/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "XMR（门罗币）可以在币安直接购买吗？",
+      "acceptedAnswer": { "@type": "Answer", "text": "不可以。币安已于 2024 年 2 月 20 日在全球下架 XMR。购买 XMR 需要两步：先在合规交易所用法币买入 USDT 等主流币，再通过免 KYC 兑换渠道换成 XMR 并提到自托管钱包。" }
+    },
+    {
+      "@type": "Question",
+      "name": "在哪里可以购买 ZEC？",
+      "acceptedAnswer": { "@type": "Answer", "text": "ZEC 在币安等主流交易所有现货交易对（ZEC/USDT、ZEC/USDC），Robinhood 也于 2026 年 4 月 24 日在全美上架 ZEC。通过邀请链接注册币安，最高享 40% 手续费减免（以币安官方页面为准）。" }
+    },
+    {
+      "@type": "Question",
+      "name": "Zcash NU7 升级是什么时候？",
+      "acceptedAnswer": { "@type": "Answer", "text": "NU7 主网升级目标日期为 2026 年 11 月 5 日，测试网已于 10 月 6 日激活。主要变化：出块时间从 75 秒缩短到 25 秒；98.9% 参与投票的持币人选择保留比特币式减半机制。" }
+    }
+  ]
+}
+</script>
+<style>
+:root{
+  --bg:#0a0d13; --card:#121826; --card2:#0f1522; --border:#233047;
+  --text:#e9eef7; --muted:#8f9ab0;
+  --green:#22c55e; --red:#f0524f; --amber:#f5a30b; --gray:#64748b;
+  --gold:#f0b90b; --accent:#5b8cff;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",sans-serif;line-height:1.7;font-size:16px;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+.wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+section{scroll-margin-top:76px;padding:44px 0}
+/* header */
+.site-header{position:sticky;top:0;z-index:50;background:rgba(10,13,19,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.header-in{display:flex;align-items:center;gap:14px;height:60px}
+.brand{font-size:19px;font-weight:800;white-space:nowrap}
+.brand span{color:var(--gold)}
+.nav{display:flex;gap:4px;margin-left:auto;overflow-x:auto;white-space:nowrap}
+.nav a{color:var(--muted);font-size:14px;padding:8px 10px;border-radius:8px}
+.nav a:hover{color:var(--text);background:#1a2334}
+.btn{display:inline-block;background:var(--gold);color:#111;font-weight:700;border:none;border-radius:10px;padding:10px 18px;font-size:15px;cursor:pointer;transition:transform .12s,box-shadow .12s}
+.btn:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(240,185,11,.35)}
+.btn-sm{padding:7px 13px;font-size:13px;border-radius:8px}
+.btn-outline{background:transparent;color:var(--text);border:1px solid var(--border)}
+.btn-outline:hover{border-color:var(--accent);box-shadow:none}
+.header-cta{margin-left:8px;white-space:nowrap}
+/* hero */
+.hero{padding:64px 0 40px;background:radial-gradient(700px 340px at 50% -60px,rgba(91,140,255,.16),transparent 70%)}
+.hero h1{font-size:clamp(26px,5.5vw,42px);font-weight:800;line-height:1.35;margin-bottom:12px}
+.hero h1 em{font-style:normal;color:var(--gold)}
+.hero p.sub{color:var(--muted);font-size:16px;max-width:640px;margin-bottom:22px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:26px 0}
+.stat{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px 14px}
+.stat .num{font-size:clamp(17px,3.4vw,24px);font-weight:800;color:var(--gold);line-height:1.4}
+.stat .lbl{font-size:12.5px;color:var(--muted);margin-top:6px}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:8px}
+.fine{font-size:12.5px;color:var(--muted)}
+/* section titles */
+.sec-title{font-size:22px;font-weight:800;margin-bottom:6px}
+.sec-desc{color:var(--muted);font-size:14.5px;margin-bottom:20px;max-width:720px}
+/* board */
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:13px;color:var(--muted);margin-bottom:12px}
+.badge{display:inline-block;padding:3px 11px;border-radius:999px;font-size:12.5px;font-weight:700;white-space:nowrap}
+.b-listed{background:rgba(34,197,94,.14);color:var(--green);border:1px solid rgba(34,197,94,.4)}
+.b-delisted{background:rgba(240,82,79,.12);color:var(--red);border:1px solid rgba(240,82,79,.4)}
+.b-restricted{background:rgba(245,163,11,.12);color:var(--amber);border:1px solid rgba(245,163,11,.4)}
+.b-unknown{background:rgba(100,116,139,.14);color:#9aa7bd;border:1px solid rgba(100,116,139,.4)}
+.table-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:14px;background:var(--card)}
+table{width:100%;border-collapse:collapse;min-width:640px;font-size:14px}
+th,td{padding:12px 12px;text-align:left;border-bottom:1px solid var(--border);vertical-align:top}
+th{background:var(--card2);color:var(--muted);font-size:13px;font-weight:600;white-space:nowrap}
+tr:last-child td{border-bottom:none}
+td.ex{font-weight:700;white-space:nowrap}
+td.ex small{display:block;color:var(--muted);font-weight:400;font-size:12px}
+.cell-note{display:block;font-size:12px;color:var(--muted);margin-top:5px;max-width:220px}
+.cell-btn{margin-top:8px}
+.update-label{margin-top:12px;font-size:12.5px;color:var(--muted)}
+.board-note{margin-top:10px;font-size:13px;color:var(--muted);background:var(--card2);border:1px solid var(--border);border-radius:10px;padding:12px 14px}
+/* compare cards */
+.cards{display:grid;grid-template-columns:1fr;gap:14px}
+@media(min-width:760px){.cards{grid-template-columns:repeat(3,1fr)}}
+.card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px}
+.card h3{font-size:20px;font-weight:800;margin-bottom:2px}
+.card .sym{color:var(--muted);font-size:13px;margin-bottom:14px}
+.kv{display:flex;justify-content:space-between;gap:10px;padding:9px 0;border-top:1px solid var(--border);font-size:13.5px}
+.kv:first-of-type{border-top:none}
+.kv .k{color:var(--muted);flex-shrink:0}
+.kv .v{text-align:right;font-weight:600}
+.compare-cta{margin-top:20px;background:var(--card2);border:1px solid var(--border);border-radius:14px;padding:20px;text-align:center}
+.compare-cta .row{display:flex;gap:12px;justify-content:center;align-items:center;flex-wrap:wrap;margin-top:12px}
+.okx-code{display:inline-block;border:1px dashed var(--border);border-radius:10px;padding:10px 16px;font-size:14px;color:var(--muted)}
+.okx-code b{color:var(--gold);font-size:17px;letter-spacing:1px}
+/* guide */
+.region-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.region-tabs button{background:var(--card);color:var(--muted);border:1px solid var(--border);border-radius:999px;padding:8px 18px;font-size:14px;cursor:pointer}
+.region-tabs button.active{background:var(--gold);color:#111;border-color:var(--gold);font-weight:700}
+.steps{display:grid;gap:12px}
+.step{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px;display:flex;gap:14px}
+.step .n{flex-shrink:0;width:34px;height:34px;border-radius:50%;background:var(--accent);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:16px}
+.step h4{font-size:16px;margin-bottom:6px}
+.step p{font-size:14px;color:var(--muted)}
+.step p b{color:var(--text)}
+.step .act{margin-top:10px}
+.warn{background:rgba(245,163,11,.08);border:1px solid rgba(245,163,11,.35);border-radius:12px;padding:14px 16px;font-size:13.5px;color:#e8c477;margin-top:16px}
+/* countdown */
+.cd-box{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:28px 20px;text-align:center}
+.cd-box h3{font-size:19px;margin-bottom:4px}
+.cd-box .cd-sub{color:var(--muted);font-size:13.5px;margin-bottom:18px}
+.cd-timer{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:20px}
+.cd-cell{background:var(--card2);border:1px solid var(--border);border-radius:12px;min-width:74px;padding:12px 8px}
+.cd-cell .d{font-size:30px;font-weight:800;color:var(--gold);font-variant-numeric:tabular-nums}
+.cd-cell .u{font-size:12px;color:var(--muted)}
+.cd-points{text-align:left;max-width:640px;margin:0 auto 20px;font-size:14.5px;color:var(--muted)}
+.cd-points li{margin-bottom:8px;list-style:none;padding-left:26px;position:relative}
+.cd-points li::before{content:"✓";position:absolute;left:2px;color:var(--green);font-weight:800}
+/* footer */
+footer{border-top:1px solid var(--border);padding:30px 0 46px;color:var(--muted);font-size:13px}
+footer .risk{background:var(--card2);border:1px solid var(--border);border-radius:12px;padding:14px 16px;margin-bottom:18px;font-size:12.5px}
+footer .links{display:flex;gap:18px;flex-wrap:wrap}
+@media(max-width:640px){
+  .nav a{padding:8px 7px;font-size:13px}
+  .header-cta{font-size:13px;padding:7px 11px}
+  .stats{grid-template-columns:1fr 1fr}
+  section{padding:34px 0}
+}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap header-in">
+    <div class="brand">🛡️ 隐私币<span>导航</span></div>
+    <nav class="nav">
+      <a href="#board">上架看板</a>
+      <a href="#compare">币种对比</a>
+      <a href="#guide">XMR购买指南</a>
+      <a href="#countdown">NU7倒计时</a>
+    </nav>
+    <a class="btn btn-sm header-cta" href="https://account.binance.com/register?ref=WBBI3YKV&?registerChannel=user_center" target="_blank" rel="noopener">币安注册省40%</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <!-- HERO -->
+  <section class="hero" style="padding-top:56px">
+    <h1>想买 <em>ZEC / XMR / DASH</em>？<br>先查哪家交易所还能上架</h1>
+    <p class="sub">隐私币监管趋严、下架潮不断，一站式中文导航：15 家主流交易所上架状态实时看板、三大隐私币对比、XMR 分步购买路线图。</p>
+    <div class="stats">
+      <div class="stat"><div class="num">$395 → $1,699</div><div class="lbl">ZEC 2026 年从约 $395 涨至历史新高约 $1,699，现约 $1,230</div></div>
+      <div class="stat"><div class="num">$71亿 → $336亿</div><div class="lbl">隐私币板块市值一年增长（Glassnode 口径）</div></div>
+      <div class="stat"><div class="num">超 $5 亿</div><div class="lbl">Grayscale ZEC 现货 ETF（ZCSH）上市两周吸金</div></div>
+    </div>
+    <div class="hero-cta">
+      <a class="btn" href="https://account.binance.com/register?ref=WBBI3YKV&?registerChannel=user_center" target="_blank" rel="noopener">去币安购买 ZEC / DASH</a>
+      <span class="fine">通过邀请链接注册，最高享40%手续费减免（以币安官方页面为准）</span>
+    </div>
+  </section>
+
+  <!-- BOARD -->
+  <section id="board">
+    <h2 class="sec-title">📋 上架状态看板</h2>
+    <p class="sec-desc">ZEC、XMR、DASH 在 15 家主流交易所的上架情况。监管环境变化快，下单前请以交易所官网为准。</p>
+    <div class="legend">
+      <span><span class="badge b-listed">上架</span> 可交易</span>
+      <span><span class="badge b-delisted">已下架</span> 不可交易</span>
+      <span><span class="badge b-restricted">地区限制</span> 部分地区不可用</span>
+      <span><span class="badge b-unknown">待核实</span> 尚未人工核实</span>
+    </div>
+    <div class="table-wrap">
+      <table id="listing-table">
+        <thead><tr><th>交易所</th><th>ZEC</th><th>XMR</th><th>DASH</th></tr></thead>
+        <tbody><tr><td colspan="4" style="color:var(--muted)">数据加载中…</td></tr></tbody>
+      </table>
+    </div>
+    <p class="update-label">数据更新于 2026-10-11 · 人工维护 · 勘误请联系 hhvip8@gmail.com</p>
+    <div class="board-note">
+      背景：2025 年有 73 家交易所下架了隐私币（KuCoin 报告）；欧盟《反洗钱条例》(AMLR) 将于 2027-07-01 全面生效，届时受监管的欧盟平台可能禁止匿名增强型币种。上架状态可能随时变化，本表仅供参考。
+    </div>
+  </section>
+
+  <!-- COMPARE -->
+  <section id="compare">
+    <h2 class="sec-title">⚖️ 币种对比</h2>
+    <p class="sec-desc">三大隐私币一图流：技术路线、隐私默认项、涨幅、ETF 与合规风险。</p>
+    <div class="cards">
+      <div class="card">
+        <h3>Zcash</h3><div class="sym">ZEC · 2026 年最火的隐私币</div>
+        <div class="kv"><span class="k">隐私技术</span><span class="v">zk-SNARKs 零知识证明</span></div>
+        <div class="kv"><span class="k">是否默认隐私</span><span class="v">否（可选屏蔽，约30%流通量已屏蔽）</span></div>
+        <div class="kv"><span class="k">总量</span><span class="v">2100 万（类比特币减半）</span></div>
+        <div class="kv"><span class="k">2026 年走势</span><span class="v">~$395 → 历史新高 ~$1,699，现约 $1,230</span></div>
+        <div class="kv"><span class="k">ETF 情况</span><span class="v">Grayscale ZCSH 已上市；Winklevoss 已申请第二只</span></div>
+        <div class="kv"><span class="k">交易所支持度</span><span class="v">高（币安、Robinhood 等上架）</span></div>
+        <div class="kv"><span class="k">合规风险</span><span class="v">相对较低（"合规隐私"叙事），欧盟 AMLR 后仍有不确定性</span></div>
+      </div>
+      <div class="card">
+        <h3>Monero</h3><div class="sym">XMR · 匿名性最强的老牌隐私币</div>
+        <div class="kv"><span class="k">隐私技术</span><span class="v">环签名 + 隐身地址 (RingCT)</span></div>
+        <div class="kv"><span class="k">是否默认隐私</span><span class="v">是（全网交易默认匿名）</span></div>
+        <div class="kv"><span class="k">总量</span><span class="v">无上限（尾部持续小额发行）</span></div>
+        <div class="kv"><span class="k">2026 年走势</span><span class="v">1 月历史新高 ~$800，现约 $560–588</span></div>
+        <div class="kv"><span class="k">ETF 情况</span><span class="v">无</span></div>
+        <div class="kv"><span class="k">交易所支持度</span><span class="v">低（币安 2024-02-20 下架；多家跟进）</span></div>
+        <div class="kv"><span class="k">合规风险</span><span class="v">高（默认全匿名，多国监管压力大）</span></div>
+      </div>
+      <div class="card">
+        <h3>Dash</h3><div class="sym">DASH · 支付系老币，隐私为可选项</div>
+        <div class="kv"><span class="k">隐私技术</span><span class="v">CoinJoin (PrivateSend)</span></div>
+        <div class="kv"><span class="k">是否默认隐私</span><span class="v">否（可选混币）</span></div>
+        <div class="kv"><span class="k">总量</span><span class="v">约 1890 万上限</span></div>
+        <div class="kv"><span class="k">2026 年走势</span><span class="v">一年涨幅约 189%</span></div>
+        <div class="kv"><span class="k">ETF 情况</span><span class="v">无</span></div>
+        <div class="kv"><span class="k">交易所支持度</span><span class="v">中（币安有现货交易对）</span></div>
+        <div class="kv"><span class="k">合规风险</span><span class="v">中（隐私为可选项，监管压力小于 XMR）</span></div>
+      </div>
+    </div>
+    <div class="compare-cta">
+      <div style="font-weight:700">看好隐私币？先从上架最广的 ZEC / DASH 入手</div>
+      <div class="row">
+        <a class="btn" href="https://account.binance.com/register?ref=WBBI3YKV&?registerChannel=user_center" target="_blank" rel="noopener">买 ZEC / DASH 上币安</a>
+        <span class="okx-code">欧易邀请码：<b>3417211</b></span>
+      </div>
+      <div class="fine" style="margin-top:10px">通过邀请链接注册，最高享40%手续费减免（以币安官方页面为准）</div>
+    </div>
+  </section>
+
+  <!-- GUIDE -->
+  <section id="guide">
+    <h2 class="sec-title">🗺️ XMR 购买路线图</h2>
+    <p class="sec-desc">XMR 已被币安等主流所下架，<b style="color:var(--text)">无法在币安直接购买</b>。下面是诚实可行的两步路线：先在币安用法币买入 USDT，再通过兑换渠道换成 XMR。选择你的地区查看注意事项：</p>
+    <div class="region-tabs" id="region-tabs">
+      <button class="active" data-region="hktw">港台</button>
+      <button data-region="sea">东南亚</button>
+      <button data-region="west">欧美</button>
+      <button data-region="other">其他地区</button>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="n">1</div>
+        <div>
+          <h4>在币安注册，并用法币买入 USDT</h4>
+          <p>这是法币入金最顺的一步。<b>注意：邀请关系只能在注册时绑定，注册后再也无法补填</b>，请务必通过邀请链接完成注册。注册后完成 KYC，再用法币通道买入 USDT。</p>
+          <div class="act">
+            <a class="btn btn-sm" href="https://account.binance.com/register?ref=WBBI3YKV&?registerChannel=user_center" target="_blank" rel="noopener">用邀请链接注册币安</a>
+            <span class="fine" style="margin-left:8px">最高享40%手续费减免（以币安官方页面为准）</span>
+          </div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="n">2</div>
+        <div>
+          <h4>通过兑换渠道把 USDT 换成 XMR</h4>
+          <p>可选：Haveno（去中心化 P2P）、主流 swap 聚合器。<b>各渠道 KYC 政策与手续费不同，下单前请自行核实</b>；警惕仿冒钓鱼网站，务必核对官方域名；大额建议分批。</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="n">3</div>
+        <div>
+          <h4>提到自托管钱包</h4>
+          <p>不要长期把 XMR 放在兑换平台。推荐：<b>Cake Wallet</b>（手机端，简单易用）、<b>Feather Wallet</b>（桌面端，隐私友好）。备份好助记词，离线保存。</p>
+        </div>
+      </div>
+    </div>
+    <div class="warn" id="region-note">📍 <b>港台用户注意：</b>请确认当地对隐私币交易的最新合规要求；法币出入金优先使用平台官方通道，保留交易记录以备税务申报。</div>
+  </section>
+
+  <!-- COUNTDOWN -->
+  <section id="countdown">
+    <h2 class="sec-title">⏳ Zcash NU7 升级倒计时</h2>
+    <p class="sec-desc">NU7 是 Zcash 2026 年最重要的网络升级，主网目标 <b style="color:var(--text)">2026-11-05</b>（测试网已于 10 月 6 日激活）。</p>
+    <div class="cd-box">
+      <h3>距离 NU7 主网升级目标</h3>
+      <div class="cd-sub">2026-11-05 · 以 Zcash 官方公告的实际激活高度为准</div>
+      <div class="cd-timer" id="cd-timer">
+        <div class="cd-cell"><div class="d" id="cd-d">--</div><div class="u">天</div></div>
+        <div class="cd-cell"><div class="d" id="cd-h">--</div><div class="u">小时</div></div>
+        <div class="cd-cell"><div class="d" id="cd-m">--</div><div class="u">分钟</div></div>
+        <div class="cd-cell"><div class="d" id="cd-s">--</div><div class="u">秒</div></div>
+      </div>
+      <ul class="cd-points">
+        <li><b style="color:var(--text)">出块更快：</b>出块时间从 75 秒缩短到 25 秒，转账确认体验明显提升。</li>
+        <li><b style="color:var(--text)">减半保留：</b>98.9% 参与投票的持币人选择保留比特币式减半机制，2100 万总量叙事不变。</li>
+        <li><b style="color:var(--text)">屏蔽池增长：</b>约 30% 的流通 ZEC 已进入屏蔽池，实际流通更趋紧。</li>
+      </ul>
+      <a class="btn" href="https://account.binance.com/register?ref=WBBI3YKV&?registerChannel=user_center" target="_blank" rel="noopener">升级前了解 ZEC → 币安购买</a>
+      <div class="fine" style="margin-top:10px">通过邀请链接注册，最高享40%手续费减免（以币安官方页面为准）</div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="risk">
+      <b style="color:var(--text)">风险提示：</b>本站内容仅为信息导航，不构成投资建议。加密货币价格波动剧烈，隐私币还面临各国不同的合规风险（如欧盟 AMLR 将于 2027-07-01 全面生效）。上架状态人工维护、每周核对，下单前请以交易所官网为准。请先确认你所在地区的法律法规再做任何操作。
+    </div>
+    <div class="links">
+      <span>📮 勘误 / 合作：hhvip8@gmail.com</span>
+      <a href="https://x.com/XBumei" target="_blank" rel="noopener">𝕏 @XBumei</a>
+      <span>🛡️ 隐私币导航 · 数据更新于 2026-10-11</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ---------- listings table (data/listings.json, with inline fallback) ---------- */
+var FALLBACK_LISTINGS = {"updated":"2026-10-11","exchanges":[
+{"name":"Binance","zh":"币安","zec":{"s":"listed","n":"ZEC/USDT、ZEC/USDC 现货及永续；9 月现货量占全网约 43%"},"xmr":{"s":"delisted","n":"2024-02-20 全球下架，5 月停止提现"},"dash":{"s":"listed","n":"2026 年 9 月新增现货交易对"}},
+{"name":"OKX","zh":"欧易","zec":{"s":"unknown","n":""},"xmr":{"s":"unknown","n":""},"dash":{"s":"unknown","n":""}},
+{"name":"Bybit","zh":"","zec":{"s":"unknown","n":""},"xmr":{"s":"unknown","n":""},"dash":{"s":"unknown","n":""}},
+{"name":"Bitget","zh":"","zec":{"s":"unknown","n":""},"xmr":{"s":"unknown","n":""},"dash":{"s":"unknown","n":""}},
+{"name":"MEXC","zh":"抹茶","zec":{"s":"unknown","n":""},"xmr":{"s":"unknown","n":""},"dash":{"s":"unknown","n":""}},
+{"name":"Gate.io","zh":"芝麻开门","zec":{"s":"unknown","n":""},"xmr":{"s":"unknown","n":""},"dash":{"s":"unknown","n":""}},
+{"name":"KuCoin","zh":"库币","zec":{"s":"unknown","n":""},"xmr":{"s":"unknown","n":""},"dash":{"s":"unknown","n":""}},
+{"name":"Kraken","zh":"","zec":{"s":"unknown","n":""},"xmr":{"s":"restricted","n":"2026-04 起在加拿大、印度下架；欧洲区面临下架压力"},"dash":{"s":"unknown","n":""}},
+{"name":"Coinbase","zh":"","zec":{"s":"unknown","n":""},"xmr":{"s":"unknown","n":""},"dash":{"s":"unknown","n":""}},
+{"name":"Crypto.com","zh":"","zec":{"s":"unknown","n":""},"xmr":{"s":"unknown","n":""},"dash":{"s":"unknown","n":""}},
+{"name":"HTX","zh":"火币","zec":{"s":"unknown","n":""},"xmr":{"s":"unknown","n":""},"dash":{"s":"unknown","n":""}},
+{"name":"Bitstamp","zh":"","zec":{"s":"unknown","n":""},"xmr":{"s":"unknown","n":""},"dash":{"s":"unknown","n":""}},
+{"name":"Gemini","zh":"双子星","zec":{"s":"unknown","n":""},"xmr":{"s":"unknown","n":""},"dash":{"s":"unknown","n":""}},
+{"name":"Robinhood","zh":"罗宾汉","zec":{"s":"listed","n":"2026-04-24 全美上架（含纽约）；仅支持透明地址提现"},"xmr":{"s":"unknown","n":""},"dash":{"s":"unknown","n":""}},
+{"name":"Bitfinex","zh":"","zec":{"s":"unknown","n":""},"xmr":{"s":"unknown","n":""},"dash":{"s":"unknown","n":""}}
+]};
+var REF_URL = "https://account.binance.com/register?ref=WBBI3YKV&?registerChannel=user_center";
+var BADGE = {listed:'<span class="badge b-listed">上架</span>',delisted:'<span class="badge b-delisted">已下架</span>',restricted:'<span class="badge b-restricted">地区限制</span>',unknown:'<span class="badge b-unknown">待核实</span>'};
+function cellHTML(ex, coin){
+  var c = ex[coin], h = BADGE[c.s] || BADGE.unknown;
+  if(c.n) h += '<span class="cell-note">'+c.n+'</span>';
+  if(ex.name==="Binance" && (coin==="zec"||coin==="dash") && c.s==="listed"){
+    h += '<div class="cell-btn"><a class="btn btn-sm" href="'+REF_URL+'" target="_blank" rel="noopener">去币安购买</a></div>';
+  }
+  if(coin==="xmr" && (c.s==="delisted"||c.s==="restricted"||c.s==="unknown")){
+    h += '<div class="cell-btn"><a href="#guide" style="font-size:13px">查看 XMR 购买指南 →</a></div>';
+  }
+  return h;
+}
+function renderTable(data){
+  var rows = data.exchanges.map(function(ex){
+    var zh = ex.zh ? '<small>'+ex.zh+'</small>' : '';
+    return '<tr><td class="ex">'+ex.name+zh+'</td><td>'+cellHTML(ex,"zec")+'</td><td>'+cellHTML(ex,"xmr")+'</td><td>'+cellHTML(ex,"dash")+'</td></tr>';
+  }).join('');
+  document.querySelector('#listing-table tbody').innerHTML = rows;
+}
+fetch('data/listings.json').then(function(r){ if(!r.ok) throw 0; return r.json(); })
+  .then(renderTable).catch(function(){ renderTable(FALLBACK_LISTINGS); });
+
+/* ---------- region tabs ---------- */
+var REGION_NOTES = {
+  hktw: '📍 <b>港台用户注意：</b>请确认当地对隐私币交易的最新合规要求；法币出入金优先使用平台官方通道，保留交易记录以备税务申报。',
+  sea: '📍 <b>东南亚用户注意：</b>各国政策差异大（如印度 2026 年已禁止隐私代币），动手前请先查清你所在国的最新规定；P2P 渠道务必走平台担保交易。',
+  west: '📍 <b>欧美用户注意：</b>欧盟 AMLR 将于 2027-07-01 全面生效，之后受监管平台可能无法提供匿名币；美国用户注意各州对隐私币的差异化规定。',
+  other: '📍 <b>其他地区用户注意：</b>隐私币合规风险因地区而异，操作前请先确认当地法律法规；本站内容仅为信息导航，不构成建议。'
+};
+document.querySelectorAll('#region-tabs button').forEach(function(b){
+  b.addEventListener('click', function(){
+    document.querySelectorAll('#region-tabs button').forEach(function(x){x.classList.remove('active')});
+    b.classList.add('active');
+    document.getElementById('region-note').innerHTML = REGION_NOTES[b.dataset.region];
+  });
+});
+
+/* ---------- NU7 countdown (target 2026-11-05 UTC) ---------- */
+var TARGET = new Date('2026-11-05T00:00:00Z').getTime();
+function tick(){
+  var diff = TARGET - Date.now();
+  if(diff <= 0){
+    document.getElementById('cd-timer').innerHTML = '<div style="color:var(--gold);font-weight:800">已到目标日期，请以 Zcash 官方公告的实际激活情况为准</div>';
+    return;
+  }
+  var d = Math.floor(diff/864e5), h = Math.floor(diff/36e5)%24, m = Math.floor(diff/6e4)%60, s = Math.floor(diff/1e3)%60;
+  document.getElementById('cd-d').textContent = d;
+  document.getElementById('cd-h').textContent = String(h).padStart(2,'0');
+  document.getElementById('cd-m').textContent = String(m).padStart(2,'0');
+  document.getElementById('cd-s').textContent = String(s).padStart(2,'0');
+}
+tick(); setInterval(tick, 1000);
+</script>
+</body>
+</html>

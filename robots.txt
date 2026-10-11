@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jxsite.github.io/privacy-nav/sitemap.xml
